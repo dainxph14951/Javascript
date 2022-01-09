@@ -2,7 +2,7 @@ const header = {
     render() {
         return /* html */`<div class="mb-2">
                 <div class="justify-between items-center max-w-5xl py-4 bg-blue-800 mx-auto">
-                <img src="/images/logo.png" class="mx-auto" />
+                <img src="../images/logo.png" class="mx-auto" />
                 </div>
                 <div class="flex justify-between items-center max-w-5xl py-3 bg-orange-600 mx-auto">
                 <nav>
