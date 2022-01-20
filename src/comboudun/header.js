@@ -22,8 +22,8 @@ const header = {
                     <!-- <a href=""><i class="fas fa-user-lock" style="color: black !important;"></i></a> -->
                     <a href="" class="p-1"><i class="fas fa-bell " style="color: black !important;"></i></a>
                     <a href="" class="p-1"><i class="fas fa-shopping-bag" style="color: black !important;"></i></a>
-                    <a href="" class="p-1"><i class="fas fa-fingerprint" style="color: black !important;"></i></a>
-                    <a href="" class="p-1"><i class="fas fa-user-lock" style="color: black !important;"></i></a>
+                    <a href="/signup" class="p-1"><i class="fas fa-fingerprint" style="color: black !important;"></i></a>
+                    <a href="/signin" class="p-1"><i class="fas fa-user-lock" style="color: black !important;"></i></a>
                 </div>
             </div>
 

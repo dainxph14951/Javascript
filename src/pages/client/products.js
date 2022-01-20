@@ -1,7 +1,7 @@
 const Products = {
     render() {
         return `<div class="max-w-5xl mx-auto">
-        <h1>Chương Trình Đào Tạoq</h1>
+        <h1>Trang Sản Phẩm</h1>
         </div>`;
     },
 };

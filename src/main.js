@@ -5,6 +5,8 @@ import Products from "./pages/client/products";
 import Blog from "./pages/client/blog";
 import Contact from "./pages/client/contact";
 import ProductDetail from "./pages/client/productdetails";
+import Signin from "./pages/client/signin";
+import Signup from "./pages/client/signup";
 
 const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
@@ -28,6 +30,12 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/lienhe": () => {
         print(Contact.render());
+    },
+    "/signin": () => {
+        print(Signin.render());
+    },
+    "/signup": () => {
+        print(Signup.render());
     },
     "/products/:id": ({ data }) => {
         const { id } = data;

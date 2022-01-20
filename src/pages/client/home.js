@@ -8,7 +8,7 @@ const homePage = {
         return /* html */`
         ${header.render()}
         ${Banner.render()}
-        <div class="mx-auto"> 
+        <div class="mx-auto p-10"> 
         
             <div class="news">
                 <h2 class="text-2xl font-semibold my-4 text-center">SẢN PHẨM NỘI BẬT</h2>
