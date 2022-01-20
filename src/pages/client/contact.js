@@ -1,8 +1,8 @@
-const Recruitment = {
+const Contact = {
     render() {
         return `<div class="max-w-5xl mx-auto">
-        <h1>Tuyển Dụng</h1>
+        <h1>Góc Sinh Viên</h1>
         </div>`;
     },
 };
-export default Recruitment;
+export default Contact;

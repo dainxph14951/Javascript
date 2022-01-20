@@ -1,8 +1,8 @@
-const Admissions = {
+const Introduce = {
     render() {
         return ` <div class="max-w-5xl mx-auto">
-        <h1>Tuyển Sinh</h1>
+        <h1>Giới Thiệu</h1>
         </div>`;
     },
 };
-export default Admissions;
+export default Introduce;

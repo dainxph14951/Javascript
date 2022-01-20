@@ -1,18 +1,15 @@
 import Navigo from "navigo"; // navigo là 1 class, đối tượng
-import homePage from "./pages/home";
-import Admissions from "./pages/Admissions";
-import Educate from "./pages/Educate";
-import Student from "./pages/Student";
-import Recruitment from "./pages/Recruitment";
-import footer from "./comboudun/footer";
-import header from "./comboudun/header";
+import homePage from "./pages/client/home";
+import Introduce from "./pages/client/introduce";
+import Products from "./pages/client/products";
+import Blog from "./pages/client/blog";
+import Contact from "./pages/client/contact";
+import ProductDetail from "./pages/client/productdetails";
 
 const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
 const print = (content) => {
-    document.getElementById("header").innerHTML = header.render();
     document.getElementById("app").innerHTML = content;
-    document.getElementById("footer").innerHTML = footer.render();
 };
 
 router.on({ // phương thức on nằm trong navigo để duyệt qua tất cả các đường dẫn
@@ -20,17 +17,21 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/": () => {
         print(homePage.render());
     },
-    "/tuyensinh": () => {
-        print(Admissions.render());
+    "/gioithieu": () => {
+        print(Introduce.render());
     },
-    "/chuongtrinh": () => {
-        print(Educate.render());
+    "/sanpham": () => {
+        print(Products.render());
     },
-    "/gocsinhvien": () => {
-        print(Student.render());
+    "/blog": () => {
+        print(Blog.render());
     },
-    "/tuyendung": () => {
-        print(Recruitment.render());
+    "/lienhe": () => {
+        print(Contact.render());
+    },
+    "/products/:id": ({ data }) => {
+        const { id } = data;
+        print(ProductDetail.render(id));
     },
 
 });
