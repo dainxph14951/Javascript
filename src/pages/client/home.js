@@ -11,19 +11,29 @@ const homePage = {
         <div class="mx-auto p-10"> 
         
             <div class="news">
-                <h2 class="text-2xl font-semibold my-4 text-center">SẢN PHẨM NỘI BẬT</h2>
-                <div class="grid grid-cols-3 gap-8">
+            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">SẢN PHẨM NỔI BẬT</h2>
+                <div class="grid grid-cols-4 gap-8">
                     ${data.map((post) => `
                    
-                        <div class="border p-4 text-center">
+                        <div class="p-4 ">
                         
                             <a href="/products/${post.id}">
-                                <img class="mx-auto" src="${post.img}" alt="" />
+                                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                                <img src="${post.img}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                              </div>
                             </a>
-                            <a href="/products/${post.id}" class="no-underline">
-                            <h3 class="my-3 font-semibold text-lg text-orange-500 ">${post.title}</h3>
-                            </a>
-                            <p>${post.desc}</p>
+                            <div class="mt-4 flex justify-between">
+                            <div>
+                              <h3 class="text-sm text-gray-700">
+                                <a href="/products/${post.id}">
+                                  <span aria-hidden="true" class="absolute inset-0"></span>
+                                  ${post.title}
+                                </a>
+                              </h3>
+                              <p>700.000đ</p>  <p>500.000đ</p> 
+                            </div>
+                            <p class="text-sm font-medium text-gray-900"><i class="fas fa-cart-arrow-down"></i></p>
+                          </div>
                           
                         </div>
                    
@@ -37,9 +47,9 @@ const homePage = {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
     <div class="sm:max-w-lg">
       <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-        Summer styles are finally here
+      Phong cách mùa hè cuối cùng cũng xuất hiện
       </h1>
-      <p class="mt-4 text-xl text-gray-500">This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care if you live or die.</p>
+      <p class="mt-4 text-xl text-gray-500">Năm nay, bộ sưu tập mùa hè mới của chúng tôi sẽ che chở bạn khỏi những yếu tố khắc nghiệt của một thế giới không quan tâm bạn sống hay chết.</p>
     </div>
     <div>
       <div class="mt-10">
@@ -78,7 +88,7 @@ const homePage = {
           </div>
         </div>
 
-        <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Shop Collection</a>
+        <a href="#" class="inline-block text-center bg-indigo-600 border border-transparent rounded-md py-3 px-8 font-medium text-white hover:bg-indigo-700">Bộ Sưu Tập</a>
       </div>
     </div>
   </div>
@@ -89,6 +99,82 @@ const homePage = {
         <div>
         
         </div>
+        <div class="bg-white">
+        <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+          <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">SẢN PHẨM ĐẶC BIỆT</h2>
+      
+          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div class="group relative">
+              <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+              </div>
+              <div class="mt-4 flex justify-between">
+                <div>
+                  <h3 class="text-sm text-gray-700">
+                    <a href="#">
+                      <span aria-hidden="true" class="absolute inset-0"></span>
+                      Basic Tee
+                    </a>
+                  </h3>
+                  <p class="mt-1 text-sm text-gray-500">Black</p>
+                </div>
+                <p class="text-sm font-medium text-gray-900">$35</p>
+              </div>
+            </div>
+      
+            <!-- More products... -->
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
+          <h2 class="text-2xl font-extrabold text-gray-900">Chương Trình Khuyến Mại</h2>
+    
+          <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
+            <div class="group relative">
+              <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="w-full h-full object-center object-cover">
+              </div>
+              <h3 class="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span class="absolute inset-0"></span>
+                  Giảm 20% với những mẫu quần jaean nam
+                </a>
+              </h3>
+              <p class="text-base font-semibold text-gray-900">khuyến mại được áp dụng đối với những sản phẩm quần jean nam trên toàn bộ... </p>
+            </div>
+    
+            <div class="group relative">
+              <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg" alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant." class="w-full h-full object-center object-cover">
+              </div>
+              <h3 class="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span class="absolute inset-0"></span>
+                  Mua 5 tặng 1
+                </a>
+              </h3>
+              <p class="text-base font-semibold text-gray-900">Khi khách hàng mua hàng trục tuyến sẽ được áp dựng ưu đãi với 5 sản phẩn đổ lên...</p>
+            </div>
+    
+            <div class="group relative">
+              <div class="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
+                <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg" alt="Collection of four insulated travel bottles on wooden shelf." class="w-full h-full object-center object-cover">
+              </div>
+              <h3 class="mt-6 text-sm text-gray-500">
+                <a href="#">
+                  <span class="absolute inset-0"></span>
+                  Miễn phí giao hàng
+                </a>
+              </h3>
+              <p class="text-base font-semibold text-gray-900">Miễn phí giao hàng với các sản phẩm từ 1.000.000, thì khách hàng sẽ được miễn...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
         ${footer.render()}
         `;
     },

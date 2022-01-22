@@ -302,7 +302,7 @@ const ProductDetail = {
         <div class="bg-gray-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
-      <h2 class="text-2xl font-extrabold text-gray-900">Collections</h2>
+      <h2 class="text-2xl font-extrabold text-gray-900">Chương Trình Khuyến Mại</h2>
 
       <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
         <div class="group relative">
@@ -312,10 +312,10 @@ const ProductDetail = {
           <h3 class="mt-6 text-sm text-gray-500">
             <a href="#">
               <span class="absolute inset-0"></span>
-              Desk and Office
+              Giảm 20% với những mẫu quần jaean nam
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">Work from home accessories</p>
+          <p class="text-base font-semibold text-gray-900">khuyến mại được áp dụng đối với những sản phẩm quần jean nam trên toàn bộ... </p>
         </div>
 
         <div class="group relative">
@@ -325,10 +325,10 @@ const ProductDetail = {
           <h3 class="mt-6 text-sm text-gray-500">
             <a href="#">
               <span class="absolute inset-0"></span>
-              Self-Improvement
+              Mua 5 tặng 1
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">Journals and note-taking</p>
+          <p class="text-base font-semibold text-gray-900">Khi khách hàng mua hàng trục tuyến sẽ được áp dựng ưu đãi với 5 sản phẩn đổ lên...</p>
         </div>
 
         <div class="group relative">
@@ -338,10 +338,10 @@ const ProductDetail = {
           <h3 class="mt-6 text-sm text-gray-500">
             <a href="#">
               <span class="absolute inset-0"></span>
-              Travel
+              Miễn phí giao hàng
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">Daily commute essentials</p>
+          <p class="text-base font-semibold text-gray-900">Miễn phí giao hàng với các sản phẩm từ 1.000.000, thì khách hàng sẽ được miễn...</p>
         </div>
       </div>
     </div>
