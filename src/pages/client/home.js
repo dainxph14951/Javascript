@@ -25,15 +25,19 @@ const homePage = {
                             <div class="mt-4 flex justify-between">
                             <div>
                               <h3 class="text-sm text-gray-700">
-                                <a href="/products/${post.id}">
+                                <a href="/products/${post.id}" class="no-underline">
                                   <span aria-hidden="true" class="absolute inset-0"></span>
                                   ${post.title}
                                 </a>
                               </h3>
-                              <p>700.000đ</p>  <p>500.000đ</p> 
                             </div>
                             <p class="text-sm font-medium text-gray-900"><i class="fas fa-cart-arrow-down"></i></p>
                           </div>
+                          <div class="text-center">
+                          <p class="line-through text-rose-600">700.000đ</p>  
+                          <p class="text-sky-700">500.000đ</p> 
+                          </div>
+                          
                           
                         </div>
                    
