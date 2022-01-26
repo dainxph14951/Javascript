@@ -7,6 +7,9 @@ import Contact from "./pages/client/contact";
 import ProductDetail from "./pages/client/productdetails";
 import Signin from "./pages/client/signin";
 import Signup from "./pages/client/signup";
+import Cart from "./pages/client/cart";
+import Bill from "./pages/client/bill";
+import NewsTb from "./pages/client/newstb";
 
 const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
@@ -34,8 +37,17 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/signin": () => {
         print(Signin.render());
     },
+    "/cart": () => {
+        print(Cart.render());
+    },
+    "/bill": () => {
+        print(Bill.render());
+    },
     "/signup": () => {
         print(Signup.render());
+    },
+    "/newstb": () => {
+        print(NewsTb.render());
     },
     "/products/:id": ({ data }) => {
         const { id } = data;
