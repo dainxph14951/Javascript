@@ -1,10 +1,11 @@
-import data from "../../data";
+import { getAll } from "../../api/posts";
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
 
 const homePage = {
-    render() {
+    async render() {
+        const response = await getAll();
         return /* html */`
         ${header.render()}
         ${Banner.render()}
@@ -13,7 +14,7 @@ const homePage = {
             <div class="news">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">SẢN PHẨM NỔI BẬT</h2>
                 <div class="grid grid-cols-4 gap-8">
-                    ${data.map((post) => `
+                    ${response.data.map((post) => `
                    
                         <div class="p-4 ">
                         

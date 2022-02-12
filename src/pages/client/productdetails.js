@@ -1,11 +1,11 @@
-import data from "../../data";
+import { get } from "../../api/posts";
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
 
 const ProductDetail = {
-    render(id) {
-        const found = data.find((element) => element.id === id);
+    async  render(id) {
+        const { data } = await get(id);
 
         return /* html */`${header.render()} ${Banner.render()}
         <div class=" p-12 max-w-full ">
@@ -58,7 +58,7 @@ const ProductDetail = {
                   </div>
                 </div>
                 <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-                  <img src="${found.img}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
+                  <img src="${data.img}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
                 </div>
               </div>
           
@@ -66,12 +66,12 @@ const ProductDetail = {
               <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                   <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                  ${found.title}
+                  ${data.title}
                   </h1>
                   <h2>
                       Chi Tiết Sản Phẩm
                   </h2>
-                  ${found.desc}
+                  ${data.desc}
                   <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id assumenda necessitatibus laboriosam vitae veniam hic? Est doloremque blanditiis non quaerat, veniam aperiam, repudiandae accusamus, itaque consectetur delectus provident numquam maxime?</div>
                 </div>
           

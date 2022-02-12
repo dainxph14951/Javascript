@@ -11,47 +11,64 @@ import Cart from "./pages/client/cart";
 import Bill from "./pages/client/bill";
 import NewsTb from "./pages/client/newstb";
 
+import StatisticalPage from "./admin/statistical";
+import AddNewsPage from "./admin/products/add";
+import AdminNewsPage from "./admin/products/index";
+import editNews from "./admin/products/edit";
+
 const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
-const print = (content) => {
-    document.getElementById("app").innerHTML = content;
+const print = async (content, id) => {
+    document.getElementById("app").innerHTML = await content.render(id);
+    if (content.afterRender) content.afterRender(id);
 };
 
 router.on({ // phương thức on nằm trong navigo để duyệt qua tất cả các đường dẫn
     // () => : đây là arrow function rút ngắn lại của function expression
     "/": () => {
-        print(homePage.render());
+        print(homePage);
     },
     "/gioithieu": () => {
-        print(Introduce.render());
+        print(Introduce);
     },
     "/sanpham": () => {
-        print(Products.render());
+        print(Products);
     },
     "/blog": () => {
-        print(Blog.render());
+        print(Blog);
     },
     "/lienhe": () => {
-        print(Contact.render());
+        print(Contact);
     },
     "/signin": () => {
-        print(Signin.render());
+        print(Signin);
     },
     "/cart": () => {
-        print(Cart.render());
+        print(Cart);
     },
     "/bill": () => {
-        print(Bill.render());
+        print(Bill);
     },
     "/signup": () => {
-        print(Signup.render());
+        print(Signup);
     },
     "/newstb": () => {
-        print(NewsTb.render());
+        print(NewsTb);
     },
     "/products/:id": ({ data }) => {
-        const { id } = data;
-        print(ProductDetail.render(id));
+        print(ProductDetail, data.id);
+    },
+    "/admin/statistical": () => {
+        print(StatisticalPage);
+    },
+    "/admin/products": () => {
+        print(AdminNewsPage);
+    },
+    "/admin/products/add": () => {
+        print(AddNewsPage);
+    },
+    "/admin/products/:id/edit": () => {
+        print(editNews);
     },
 
 });
