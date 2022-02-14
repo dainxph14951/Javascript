@@ -1,7 +1,8 @@
 import { getAll } from "../../api/posts";
 import NavAdmin from "../../components/NavAdmin";
 
-const AdminNewsPage = {
+const ProductsPage = {
+
     async render() {
         const response = await getAll();
         return /* html */`
@@ -110,4 +111,4 @@ const AdminNewsPage = {
                     `;
     },
 };
-export default AdminNewsPage;
+export default ProductsPage;

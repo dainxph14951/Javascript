@@ -12,9 +12,9 @@ import Bill from "./pages/client/bill";
 import NewsTb from "./pages/client/newstb";
 
 import StatisticalPage from "./admin/statistical";
-import AddNewsPage from "./admin/products/add";
-import AdminNewsPage from "./admin/products/index";
-import editNews from "./admin/products/edit";
+import AddProductsPage from "./admin/products/add";
+import ProductsPage from "./admin/products/index";
+import editPeoducts from "./admin/products/edit";
 
 const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
@@ -62,13 +62,13 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
         print(StatisticalPage);
     },
     "/admin/products": () => {
-        print(AdminNewsPage);
+        print(ProductsPage);
     },
     "/admin/products/add": () => {
-        print(AddNewsPage);
+        print(AddProductsPage);
     },
     "/admin/products/:id/edit": () => {
-        print(editNews);
+        print(editPeoducts);
     },
 
 });
