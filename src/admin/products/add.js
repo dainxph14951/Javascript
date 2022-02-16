@@ -1,5 +1,5 @@
+import axios from "axios";
 import NavAdmin from "../../components/NavAdmin";
-import { add } from "../../api/posts";
 
 const AddProductsPage = {
     render() {
@@ -89,17 +89,29 @@ const AddProductsPage = {
         //     });
         // });
         const formAdd = document.querySelector("#form-add-post");
-        formAdd.addEventListener("submit", (e) => {
+        const CLOUDINARY_PRESET = "k9yoyn7r";
+        const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dev7lem1d/image/upload";
+        formAdd.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const postFake = {
+            // Lấy giá trị của input file
+            const file = document.querySelector("#img").files[0];
+            // Gắn vào đối tượng formData
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", CLOUDINARY_PRESET);
+
+            // call api cloudinary, để upload ảnh lên
+            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+                headers: {
+                    "Content-Type": "application/form-data",
+                },
+            });
+            // call API thêm bài viết
+            axios.post("http://localhost:3001/posts", {
                 title: document.querySelector("#tieuDe").value,
-                img: document.querySelector("#img").value,
+                img: data.url,
                 desc: document.querySelector("#chiTiet").value,
-            };
-            add(postFake)
-                .then((result) => console.log(result.data))
-                .catch((error) => console.log(error));
-            // axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", postFake);
+            });
             document.location.href = "/admin/products";
         });
     },
