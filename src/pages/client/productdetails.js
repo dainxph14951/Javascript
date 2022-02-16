@@ -1,11 +1,14 @@
-import { get } from "../../api/posts";
+import toastr from "toastr";
+import { get } from "../../api/products";
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
+import { addToCart } from "../../utils/cart";
+import "toastr/build/toastr.min.css";
 
 const ProductDetail = {
     async  render(id) {
-        const { data } = await get(id);
+        const { data: product } = await get(id);
 
         return /* html */`${header.render()} ${Banner.render()}
         <div class=" p-12 max-w-full ">
@@ -58,7 +61,7 @@ const ProductDetail = {
                   </div>
                 </div>
                 <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-                  <img src="${data.img}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
+                  <img src="${product.img}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
                 </div>
               </div>
           
@@ -66,19 +69,19 @@ const ProductDetail = {
               <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
                 <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                   <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                  ${data.title}
+                  ${product.name}
                   </h1>
                   <h2>
                       Chi Tiết Sản Phẩm
                   </h2>
-                  ${data.desc}
+                  ${product.desc}
                   <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id assumenda necessitatibus laboriosam vitae veniam hic? Est doloremque blanditiis non quaerat, veniam aperiam, repudiandae accusamus, itaque consectetur delectus provident numquam maxime?</div>
                 </div>
           
                 <!-- Options -->
                 <div class="mt-4 lg:mt-0 lg:row-span-3">
                   <h2 class="sr-only">Product information</h2>
-                  <p class="text-3xl text-gray-900">$192</p>
+                  <p class="text-3xl text-gray-900">${product.price}đ</p>
           
                   <!-- Reviews -->
                   <div class="mt-6">
@@ -294,8 +297,12 @@ const ProductDetail = {
                         </div>
                       </fieldset>
                     </div>
+                    <div>
+                    <input type="number" id="inputValue" class="border border-black"/>Số Lượng
+                    </div>
+                   
                     <a href="/cart">
-                    <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+                    <button type="submit" data-id="${product.id}" id="btnAddToCart" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
                     </a>
                   </form>
                 </div>
@@ -349,6 +356,21 @@ const ProductDetail = {
   </div>
 </div>
         ${footer.render()}`;
+    },
+    afterRender() {
+        const btnAddToCart = document.querySelector("#btnAddToCart");
+        const { id } = btnAddToCart.dataset;
+        const inputValue = document.querySelector("#inputValue");
+
+        btnAddToCart.addEventListener("click", async (e) => {
+            e.preventDefault();
+            // console.log(inputValue.value)
+            const { data } = await get(id);
+            console.log(data);
+            addToCart({ ...data, quantity: inputValue.value ? inputValue.value : 1 }, () => {
+                toastr.success(`Thêm sản phẩm ${data.name} vào giỏ hàng thành công!`);
+            });
+        });
     },
 };
 export default ProductDetail;

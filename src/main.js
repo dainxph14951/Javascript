@@ -1,7 +1,7 @@
 import Navigo from "navigo"; // navigo là 1 class, đối tượng
 import homePage from "./pages/client/home";
 import Introduce from "./pages/client/introduce";
-import Products from "./pages/client/products";
+import Products from "./pages/client/AllProducts";
 import Blog from "./pages/client/blog";
 import Contact from "./pages/client/contact";
 import ProductDetail from "./pages/client/productdetails";
@@ -10,11 +10,12 @@ import Signup from "./pages/client/signup";
 import Cart from "./pages/client/cart";
 import Bill from "./pages/client/bill";
 import NewsTb from "./pages/client/newstb";
+import productsPage from "./pages/client/products/index";
 
 import StatisticalPage from "./admin/statistical";
-import AddProductsPage from "./admin/products/add";
-import ProductsPage from "./admin/products/index";
-import editPeoducts from "./admin/products/edit";
+import AddNewsPage from "./admin/news/add";
+import newsPage from "./admin/news/index";
+import editNews from "./admin/news/edit";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
@@ -55,20 +56,26 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/newstb": () => {
         print(NewsTb);
     },
+    "/allproducts": () => {
+        print(Products);
+    },
+    "/products": () => {
+        print(productsPage);
+    },
     "/products/:id": ({ data }) => {
         print(ProductDetail, data.id);
     },
     "/admin/statistical": () => {
         print(StatisticalPage);
     },
-    "/admin/products": () => {
-        print(ProductsPage);
+    "/admin/news": () => {
+        print(newsPage);
     },
-    "/admin/products/add": () => {
-        print(AddProductsPage);
+    "/admin/news/add": () => {
+        print(AddNewsPage);
     },
-    "/admin/products/:id/edit": () => {
-        print(editPeoducts);
+    "/admin/news/:id/edit": () => {
+        print(editNews);
     },
 
 });

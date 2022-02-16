@@ -1,4 +1,4 @@
-import { getAll } from "../../api/posts";
+import { getAll } from "../../api/products";
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
@@ -18,21 +18,21 @@ const homePage = {
             <div class="news">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">SẢN PHẨM NỔI BẬT</h2>
                 <div class="grid grid-cols-4 gap-8">
-                    ${response.data.map((post) => `
+                    ${response.data.map((products) => `
                    
                         <div class="p-4 ">
                         
-                            <a href="/products/${post.id}">
+                            <a href="/products/${products.id}">
                                 <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                <img src="${post.img}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                                <img src="${products.img}" alt="Front of men&#039;s Basic Tee in black." class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                               </div>
                             </a>
                             <div class="mt-4 flex justify-between">
                             <div>
                               <h3 class="text-sm text-gray-700">
-                                <a href="/products/${post.id}" class="no-underline">
+                                <a href="/products/${products.id}" class="no-underline">
                                   <span aria-hidden="true" class="absolute inset-0"></span>
-                                  ${post.title}
+                                  ${products.name}
                                 </a>
                               </h3>
                             </div>
@@ -40,7 +40,7 @@ const homePage = {
                           </div>
                           <div class="text-center">
                           <p class="line-through text-rose-600">700.000đ</p>  
-                          <p class="text-sky-700">500.000đ</p> 
+                          <p class="text-sky-700"> ${products.price}đ</p> 
                           </div>
                           
                           

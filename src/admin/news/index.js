@@ -1,7 +1,8 @@
-import { getAll } from "../../api/posts";
+import { getAll, remove } from "../../api/posts";
 import NavAdmin from "../../components/NavAdmin";
 
-const AdminNewsPage = {
+const newsPage = {
+
     async render() {
         const response = await getAll();
         return /* html */`
@@ -88,7 +89,7 @@ const AdminNewsPage = {
                                 <a href="/admin/products/${post.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
                               </td>                              
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="${post.id}" class="bnt inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</a>
+                                <a href="${post.id}" id="btn" class="bnt inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</a>
                               </td>
                             </tr>
                             `).join("")}
@@ -109,5 +110,20 @@ const AdminNewsPage = {
     
                     `;
     },
+    afterRender() {
+        // Lấy danh sách button
+        const btns = document.querySelectorAll("#btn");
+        // tạo vòng lặp và lấy ra từng button
+        btns.forEach((btn) => {
+            const { id } = btn.dataset;
+            // Viết sự kiện khi click vào button call api và xóa sản phẩm
+            btn.addEventListener("click", () => {
+                const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
+                if (confirm) {
+                    remove(id);
+                }
+            });
+        });
+    },
 };
-export default AdminNewsPage;
+export default newsPage;

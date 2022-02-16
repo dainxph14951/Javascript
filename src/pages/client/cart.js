@@ -1,9 +1,14 @@
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
+import { decreaseQuantity, increaseQuantity, removeItemInCart } from "../../utils/cart";
 
 const Cart = {
     render() {
+        let cart = [];
+        if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
         return /* html */`
         ${header.render()} ${Banner.render()}
         <div class="flex flex-col m-10">
@@ -12,15 +17,16 @@ const Cart = {
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
+               
                   <tr>
                   <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  ID
+                  Tên
                  </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                     Ảnh
+                    Ảnh
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Giá
+                  Giá
                     </th>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Size
@@ -31,30 +37,29 @@ const Cart = {
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Tổng Giá
                   </th>
-                    <th scope="col" class="relative px-6 py-3">
-                      <span class="sr-only">Edit</span>
-                    </th>
                   </tr>
+                  
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                ${cart.map((item) => `
                   <tr>
                   <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">1</div>
+                  <div class="text-sm text-gray-900">${item.name}</div>
                 </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
-                          <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60" alt="">
+                          <img class="h-10 w-10 rounded-full" src="${item.img}" alt="">
                         </div>
                         <div class="ml-4">
                           <div class="text-sm font-medium text-gray-900">
-                            Áo thun
+                          ${item.name}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                      <div class="text-sm text-gray-900">200.000đ</div>
+                      <div class="text-sm text-gray-900">${item.price}đ</div>
 
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -68,11 +73,15 @@ const Cart = {
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                     600.000đ
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" class="text-indigo-600 hover:text-indigo-900">Xóa</a>
-                    </td>
+                    <td>
+                    <button data-id="${item.id}" class="btn btn-increase">+</button>
+                    <button data-id="${item.id}" class="btn btn-decrease">-</button>
+                </td>
+                <td>
+                    <button data-id="${item.id}" class="btn btn-remove">X</button>
+                </td>
                   </tr>
-      
+                  `).join("")}
                   <!-- More people... -->
                 </tbody>
               </table>
@@ -85,6 +94,25 @@ const Cart = {
       </a>
       ${footer.render()}
  `;
+    },
+    afterRender() {
+        const btns = document.querySelectorAll(".btn");
+        btns.forEach((button) => {
+            button.addEventListener("click", () => {
+                const { id } = button.dataset;
+                if (button.classList.contains("btn-increase")) {
+                    increaseQuantity(id);
+                } else if (button.classList.contains("btn-decrease")) {
+                    decreaseQuantity(id, () => {
+
+                    });
+                } else {
+                    removeItemInCart(id, () => {
+
+                    });
+                }
+            });
+        });
     },
 };
 export default Cart;
