@@ -16,7 +16,7 @@ import AddProductsPage from "./admin/products/add";
 import ProductsPage from "./admin/products/index";
 import editPeoducts from "./admin/products/edit";
 
-const router = new Navigo("/", { linksSelector: "a" }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
+const router = new Navigo("/", { linksSelector: "a", hash: true }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
 const print = async (content, id) => {
     document.getElementById("app").innerHTML = await content.render(id);

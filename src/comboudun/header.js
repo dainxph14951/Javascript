@@ -1,3 +1,5 @@
+import { reRender } from "../utils/rerender";
+
 const header = {
     render() {
         return /* html */`<div class="vapare">
@@ -25,11 +27,31 @@ const header = {
                     <a href="/signup" class="p-1"><i class="fas fa-fingerprint" style="color: black !important;"></i></a>
                     <a href="/signin" class="p-1"><i class="fas fa-user-lock" style="color: black !important;"></i></a>
                 </div>
+                ${localStorage.getItem("user") ? `
+                <div class="flex items-center"><span class="block py-3 px-4 text-black" id="email"></span></div>
+                <div><a href="/" class="block py-3 px-4 text-black text-center  hover:bg-blue-500" id="logout">Logout</a></div>
+                ` : ""}
             </div>
 
         </header> 
         <!-- -------------------------------------------- -->
 `;
+    },
+    afterRender() {
+        // lấy thông tin từ localStorage
+        // JSON.parse chuyển từ chuỗi sang objec
+        const email = document.querySelector("#email");
+        const logout = document.querySelector("#logout");
+        if (email) {
+            email.innerHTML = JSON.parse(localStorage.getItem("user")).email;
+        }
+        if (logout) {
+            logout.addEventListener("click", () => {
+                localStorage.removeItem("user");
+                // reRender(header, "#header");
+                // document.location.href = "/";
+            });
+        }
     },
 };
 export default header;

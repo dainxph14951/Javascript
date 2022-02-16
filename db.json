@@ -2,7 +2,7 @@
   "posts": [
     {
       "createdAt": "2022-01-10T07:26:52.549Z",
-      "title": "Annie Stroman",
+      "title": "Alo",
       "img": "http://placeimg.com/640/480/fashion",
       "desc": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
       "id": "1"
@@ -124,17 +124,26 @@
       "img": "http://res.cloudinary.com/ecommercer2021/image/upload/v1644310015/tmidn2vyavd7uasurvsz.png",
       "desc": "Noi dung bai viet moi 1",
       "id": "Fhb4ltM"
+    },
+    {
+      "title": "abc",
+      "img": "C:\\fakepath\\1.jpeg",
+      "desc": "abc",
+      "id": "oxygnW5"
     }
   ],
   "users": [
     {
-      "email": "anguyen@gmail.com",
-      "password": "$2a$10$/xzwN2Ap0BvZWY6uQ42ZPOhL4a34k6jSJy3l2DVqKQC.gkYUmTUxe",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$fkjIIuLfzwYxJ5FCoEjLI.lfHFEiFaGzweVxybs.jfCY8eB1y2URm",
+      "firstname": "Đại",
+      "lastname": "Nguyễn",
+      "gender": "Nam",
       "id": 1
     },
     {
-      "email": "admin@gmail.com",
-      "password": "$2a$10$tYJvrfP8Ar0hJiebh9u3k.rE4hmnLUIWUI0mCrLz.0qQWXDml.ida",
+      "email": "khach@gmail.com",
+      "password": "$2a$10$5eMqh5MZ8T2FtD766DB5cumBL.Ug90iWSEg.9ABVo8.jvMbTPR6bu",
       "firstname": "Đại",
       "lastname": "Nguyễn",
       "gender": "Nam",

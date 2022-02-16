@@ -1,4 +1,6 @@
+import toastr from "toastr";
 import { signup } from "../../api/user";
+import "toastr/build/toastr.min.css";
 
 const Signup = {
     render() {
@@ -67,16 +69,27 @@ const Signup = {
     },
     afterRender() {
         const formSignup = document.querySelector("#formSignup");
-        formSignup.addEventListener("submit", (e) => {
+        formSignup.addEventListener("submit", async (e) => {
             e.preventDefault();
-            signup({
-                firstname: document.querySelector("#first-name").value,
-                lastname: document.querySelector("#last-name").value,
-                gender: document.querySelector("#gender").value,
-                email: document.querySelector("#email").value,
-                password: document.querySelector("#password").value,
-            });
+            try {
+                const { data } = await signup({
+                    firstname: document.querySelector("#first-name").value,
+                    lastname: document.querySelector("#last-name").value,
+                    gender: document.querySelector("#gender").value,
+                    email: document.querySelector("#email").value,
+                    password: document.querySelector("#password").value,
+                });
+                if (data) {
+                    toastr.success("Đăng Ký thành công, chờ chuyển trang");
+                    setTimeout(() => {
+                        document.location.href = "/signin";
+                    }, 2000);
+                }
+            } catch (error) {
+                toastr.error(error.response);
+            }
         });
     },
+
 };
 export default Signup;

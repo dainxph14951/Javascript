@@ -2,7 +2,7 @@ import { add, get } from "../../api/posts";
 
 const editPeoducts = {
     async render() {
-        const { data } = await get(5);
+        const { data } = await get(1);
         return /* html */`<div class="max-w-5xl mx-auto">
     <form action="#" method="POST">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

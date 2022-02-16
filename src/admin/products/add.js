@@ -100,6 +100,7 @@ const AddProductsPage = {
                 .then((result) => console.log(result.data))
                 .catch((error) => console.log(error));
             // axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", postFake);
+            document.location.href = "/admin/products";
         });
     },
 };

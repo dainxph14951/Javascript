@@ -7,8 +7,12 @@ const homePage = {
     async render() {
         const response = await getAll();
         return /* html */`
+        <div id="header">
         ${header.render()}
+        </div>
+        <div id="banner">
         ${Banner.render()}
+        </div>
         <div class="mx-auto p-10"> 
         
             <div class="news">
@@ -180,8 +184,14 @@ const homePage = {
         </div>
       </div>
     </div>
-        ${footer.render()}
+    <div id=""footer>
+    ${footer.render()}
+    </div>
+
         `;
+    },
+    afterRender() {
+        header.afterRender();
     },
 };
 export default homePage;
