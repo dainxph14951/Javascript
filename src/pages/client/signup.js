@@ -76,6 +76,7 @@ const Signup = {
                     firstname: document.querySelector("#first-name").value,
                     lastname: document.querySelector("#last-name").value,
                     gender: document.querySelector("#gender").value,
+                    streetaddress: document.querySelector("#street-address").value,
                     email: document.querySelector("#email").value,
                     password: document.querySelector("#password").value,
                 });

@@ -157,14 +157,16 @@
       "firstname": "Đại",
       "lastname": "Nguyễn",
       "gender": "Nam",
+      "streetaddress": "Thái Bình.",
       "id": 1
     },
     {
       "email": "khach@gmail.com",
-      "password": "$2a$10$5eMqh5MZ8T2FtD766DB5cumBL.Ug90iWSEg.9ABVo8.jvMbTPR6bu",
-      "firstname": "Đại",
+      "password": "$2a$10$SGRZyG/lvnbi75g5klIsPuX4qkXl0r8CttyAbdESVe5wZBvi4Il3S",
+      "firstname": "Trăm",
       "lastname": "Nguyễn",
-      "gender": "Nam",
+      "gender": "Nữ",
+      "streetaddress": "Hoài Đức, Hà Nội.",
       "id": 2
     }
   ],

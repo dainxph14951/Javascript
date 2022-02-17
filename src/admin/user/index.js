@@ -44,6 +44,9 @@ const UserPage = {
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                               Tên Người Dùng
                             </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Đại Chỉ
+                          </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Giới Tính
                               </th>
@@ -77,6 +80,11 @@ const UserPage = {
                               <td class="px-6 py-4 whitespace-nowrap">
                   
                               <div class="text-sm text-gray-900">${user.firstname}</div>
+                  
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                  
+                              <div class="text-sm text-gray-900">${user.streetaddress}</div>
                   
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
