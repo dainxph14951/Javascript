@@ -68,17 +68,17 @@ const Cart = {
                       </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    3
+                    ${item.quantity}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    600.000đ
+                    1000đ
                     </td>
                     <td>
                     <button data-id="${item.id}" class="btn btn-increase">+</button>
                     <button data-id="${item.id}" class="btn btn-decrease">-</button>
                 </td>
                 <td>
-                    <button data-id="${item.id}" class="btn btn-remove">X</button>
+                    <button data-id="${item.id}" class="btn btn-remove">Xóa</button>
                 </td>
                   </tr>
                   `).join("")}

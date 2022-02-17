@@ -17,6 +17,14 @@ import AddNewsPage from "./admin/news/add";
 import newsPage from "./admin/news/index";
 import editNews from "./admin/news/edit";
 
+import UserPage from "./admin/user";
+import AddUserPage from "./admin/user/add";
+import editUser from "./admin/user/edit";
+
+import ProductsAddPage from "./admin/products/add";
+import ProductsPage from "./admin/products";
+import ProductsEdit from "./admin/products/edit";
+
 const router = new Navigo("/", { linksSelector: "a", hash: true }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
 const print = async (content, id) => {
@@ -76,6 +84,24 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/admin/news/:id/edit": () => {
         print(editNews);
+    },
+    "/admin/user": () => {
+        print(UserPage);
+    },
+    "/admin/user/add": () => {
+        print(AddUserPage);
+    },
+    "/admin/user/:id/edit": () => {
+        print(editUser);
+    },
+    "/admin/products": () => {
+        print(ProductsPage);
+    },
+    "/admin/products/add": () => {
+        print(ProductsAddPage);
+    },
+    "/admin/products/:id/edit": () => {
+        print(ProductsEdit);
     },
 
 });

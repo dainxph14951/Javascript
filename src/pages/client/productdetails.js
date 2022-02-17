@@ -369,6 +369,9 @@ const ProductDetail = {
             console.log(data);
             addToCart({ ...data, quantity: inputValue.value ? inputValue.value : 1 }, () => {
                 toastr.success(`Thêm sản phẩm ${data.name} vào giỏ hàng thành công!`);
+                setTimeout(() => {
+                    document.location.href = "/cart";
+                }, 1000);
             });
         });
     },

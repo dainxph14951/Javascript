@@ -1,7 +1,7 @@
-import { getAll } from "../../api/posts";
+import { getAll } from "../../api/products";
 import NavAdmin from "../../components/NavAdmin";
 
-const AdminNewsPage = {
+const ProductsPage = {
     async render() {
         const response = await getAll();
         return /* html */`
@@ -45,7 +45,7 @@ const AdminNewsPage = {
                               Tên Sản Phẩm
                             </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Ngày Tạo
+                                Giá
                               </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Chi Tiết Sản Phẩm
@@ -59,13 +59,13 @@ const AdminNewsPage = {
                             </tr>
                           </thead>
                           <tbody class="bg-white divide-y divide-gray-200">
-                          ${response.data.map((post) => `
+                          ${response.data.map((products) => `
                             <tr>
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                   <div class="flex-shrink-0 h-10 w-10">
                   
-                                    <img class="h-10 w-10 rounded-full" src="${post.img}" alt="">
+                                    <img class="h-10 w-10 rounded-full" src="${products.img}" alt="">
                   
                                   </div>
                                   </div>
@@ -73,22 +73,22 @@ const AdminNewsPage = {
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
                   
-                              <div class="text-sm text-gray-900">${post.title}</div>
+                              <div class="text-sm text-gray-900">${products.name}</div>
                   
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                ${post.createdAt}
+                                ${products.price}
                                 </span>
                               </td>
                               <td class="px-6 py-4 text-sm text-gray-400">
-                               ${post.desc}
+                               ${products.desc}
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/admin/products/${post.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
+                                <a href="/admin/products/${products.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
                               </td>                              
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="${post.id}" class="bnt inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</a>
+                                <a href="${products.id}" class="bnt inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</a>
                               </td>
                             </tr>
                             `).join("")}
@@ -110,4 +110,4 @@ const AdminNewsPage = {
                     `;
     },
 };
-export default AdminNewsPage;
+export default ProductsPage;

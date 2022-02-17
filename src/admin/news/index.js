@@ -40,16 +40,16 @@ const newsPage = {
                           <thead class="bg-gray-50">
                             <tr>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Ảnh Sản Phẩm
+                                Ảnh Tin Tức
                               </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              Tên Sản Phẩm
+                              Tên tin Tức
                             </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Ngày Tạo
                               </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Chi Tiết Sản Phẩm
+                                Chi Tiết 
                               </th>
                               <th scope="col" class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                

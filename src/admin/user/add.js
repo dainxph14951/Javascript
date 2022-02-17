@@ -1,7 +1,7 @@
 import NavAdmin from "../../components/NavAdmin";
-import { add } from "../../api/posts";
+import { add } from "../../api/users";
 
-const AddNewsPage = {
+const AddUserPage = {
     render() {
         return /* html */`
         
@@ -77,4 +77,4 @@ const AddNewsPage = {
         });
     },
 };
-export default AddNewsPage;
+export default AddUserPage;

@@ -67,9 +67,6 @@ ${header.render()} ${Banner.render()}
         </form>
       </div>
     </div>
-
-
-
     <div class="w-screen max-w-md">
       <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
         <div class="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
@@ -91,8 +88,8 @@ ${header.render()} ${Banner.render()}
 
           <div class="mt-8">
             <div class="flow-root">
-              <ul role="list" class="-my-6 divide-y divide-gray-200">
-                <li class="py-6 flex">
+              <div role="list" class="-my-6 divide-y divide-gray-200">
+                <div class="py-6 flex">
                   <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                     <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                       alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
@@ -125,9 +122,9 @@ ${header.render()} ${Banner.render()}
                       </div>
                     </div>
                   </div>
-                </li>
+                </div>
 
-                <li class="py-6 flex">
+                <div class="py-6 flex">
                   <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
                     <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                       alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
@@ -160,9 +157,9 @@ ${header.render()} ${Banner.render()}
                       </div>
                     </div>
                   </div>
-                </li>
+                </div>
 
-              </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -186,7 +183,9 @@ ${header.render()} ${Banner.render()}
         </div>
       </div>
     </div>
-  
+  <div class="">
+      
+  </div>
 
 </div>
 ${footer.render()}`;

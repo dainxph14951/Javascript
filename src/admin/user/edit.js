@@ -1,6 +1,6 @@
-import { add, get } from "../../api/posts";
+import { add, get } from "../../api/users";
 
-const editNews = {
+const editUser = {
     async render() {
         const { data } = await get(5);
         return /* html */`<div class="max-w-5xl mx-auto">
@@ -86,4 +86,4 @@ const editNews = {
         });
     },
 };
-export default editNews;
+export default editUser;
