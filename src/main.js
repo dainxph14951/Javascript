@@ -1,4 +1,5 @@
 import Navigo from "navigo"; // navigo là 1 class, đối tượng
+import { data } from "autoprefixer";
 import homePage from "./pages/client/home";
 import Introduce from "./pages/client/introduce";
 import Products from "./pages/client/AllProducts";
@@ -82,8 +83,8 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/admin/news/add": () => {
         print(AddNewsPage);
     },
-    "/admin/news/:id/edit": () => {
-        print(editNews);
+    "/admin/news/:id/edit": ({ data }) => {
+        print(editNews, data.id);
     },
     "/admin/user": () => {
         print(UserPage);
@@ -100,8 +101,8 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/admin/products/add": () => {
         print(ProductsAddPage);
     },
-    "/admin/products/:id/edit": () => {
-        print(ProductsEdit);
+    "/admin/products/:id/edit": ({ data }) => {
+        print(ProductsEdit, data.id);
     },
 
 });

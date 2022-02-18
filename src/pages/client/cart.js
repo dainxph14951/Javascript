@@ -1,6 +1,7 @@
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
+import { reRender } from "../../utils/rerender";
 import { decreaseQuantity, increaseQuantity, removeItemInCart } from "../../utils/cart";
 
 const Cart = {
@@ -108,7 +109,7 @@ const Cart = {
                     });
                 } else {
                     removeItemInCart(id, () => {
-
+                        reRender(Cart, "#app");
                     });
                 }
             });
