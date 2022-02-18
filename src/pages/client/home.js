@@ -14,10 +14,14 @@ const homePage = {
         ${Banner.render()}
         </div>
         <div class="mx-auto p-10"> 
-        
+                <div>
+                <input type="text" id="searchItem">
+                <button onclick="serach()">Search</button>
+                </div>
             <div class="news">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">SẢN PHẨM NỔI BẬT</h2>
-                <div class="grid grid-cols-4 gap-8">
+
+                <div class="grid grid-cols-4 gap-8" id="menu_list">
                     ${response.data.map((products) => `
                    
                         <div class="p-4 ">
@@ -29,7 +33,7 @@ const homePage = {
                             </a>
                             <div class="mt-4 flex justify-between">
                             <div>
-                              <h3 class="text-sm text-gray-700">
+                              <h3 class="text-sm text-gray-700" id="menu_item">
                                 <a href="/products/${products.id}" class="no-underline">
                                   <span aria-hidden="true" class="absolute inset-0"></span>
                                   ${products.name}
@@ -192,6 +196,16 @@ const homePage = {
     },
     afterRender() {
         header.afterRender();
+    },
+    serach() {
+        const search = document.getElementById("searchItem").value;
+        const list = this.response;
+        console.log(list);
+        // if (search) {
+        //     for (let i = 0; i < list.length; i++) {
+        //         const str = list[i].name;
+        //     }
+        // }
     },
 };
 export default homePage;

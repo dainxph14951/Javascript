@@ -4,11 +4,16 @@ import footer from "../../comboudun/footer";
 
 const Bill = {
     render() {
+        let cart = [];
+        if (localStorage.getItem("cart")) {
+            cart = JSON.parse(localStorage.getItem("cart"));
+        }
+        console.log(cart);
         return /* html */`
 
 ${header.render()} ${Banner.render()}
 <h1>Thanh Toán</h1>
-<div class="flex m-10">
+<div class="m-20 ">
 
     <div class="mt-10 sm:mt-0">
       <div class="mt-5 md:mt-0 md:col-span-2">
@@ -53,13 +58,8 @@ ${header.render()} ${Banner.render()}
               </div>
 
               <div class="col-span-6 sm:col-span-4">
-                <label for="email-address" class="block text-sm font-medium text-gray-700">Tên Tài Khoản</label>
-                <input type="text" name="acc" id="acc" autocomplete="acc"
-                  class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-              </div>
-              <div class="col-span-6 sm:col-span-4">
-                <label for="email-address" class="block text-sm font-medium text-gray-700">Mật Khẩu</label>
-                <input type="password" name="pass" id="pass" autocomplete="pass"
+                <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Số Điện Thoại</label>
+                <input type="number" name="phoneNumber" id="phoneNumber" autocomplete="phoneNumber"
                   class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
               </div>
             </div>
@@ -67,12 +67,12 @@ ${header.render()} ${Banner.render()}
         </form>
       </div>
     </div>
-    <div class="w-screen max-w-md">
+    <div class="">
       <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
         <div class="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
           <div class="flex items-start justify-between">
             <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">
-              Shopping cart
+              Hóa Đơn
             </h2>
             <div class="ml-3 h-7 flex items-center">
               <button type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
@@ -87,25 +87,27 @@ ${header.render()} ${Banner.render()}
           </div>
 
           <div class="mt-8">
+          ${cart.map((item) => /* html */`
             <div class="flow-root">
               <div role="list" class="-my-6 divide-y divide-gray-200">
                 <div class="py-6 flex">
                   <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
+                    <img src="${item.img}"
                       alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
                       class="w-full h-full object-center object-cover">
                   </div>
 
                   <div class="ml-4 flex-1 flex flex-col">
+                    
                     <div>
                       <div class="flex justify-between text-base font-medium text-gray-900">
                         <h3>
                           <a href="#">
-                            Throwback Hip Bag
+                          ${item.name}
                           </a>
                         </h3>
                         <p class="ml-4">
-                          $90.00
+                        ${item.price}
                         </p>
                       </div>
                       <p class="mt-1 text-sm text-gray-500">
@@ -114,69 +116,35 @@ ${header.render()} ${Banner.render()}
                     </div>
                     <div class="flex-1 flex items-end justify-between text-sm">
                       <p class="text-gray-500">
-                        Qty 1
+                      ${item.quantity}
                       </p>
 
                       <div class="flex">
-                        <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                        <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">xóa</button>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
-
-                <div class="py-6 flex">
-                  <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
-                    <img src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                      alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                      class="w-full h-full object-center object-cover">
-                  </div>
-
-                  <div class="ml-4 flex-1 flex flex-col">
-                    <div>
-                      <div class="flex justify-between text-base font-medium text-gray-900">
-                        <h3>
-                          <a href="#">
-                            Medium Stuff Satchel
-                          </a>
-                        </h3>
-                        <p class="ml-4">
-                          $32.00
-                        </p>
-                      </div>
-                      <p class="mt-1 text-sm text-gray-500">
-                        Blue
-                      </p>
-                    </div>
-                    <div class="flex-1 flex items-end justify-between text-sm">
-                      <p class="text-gray-500">
-                        Qty 1
-                      </p>
-
-                      <div class="flex">
-                        <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
+            `).join("")}
           </div>
         </div>
 
         <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
           <div class="flex justify-between text-base font-medium text-gray-900">
-            <p>Subtotal</p>
+            <p>Tổng Tiền</p>
             <p>$262.00</p>
           </div>
-          <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+          <p class="mt-0.5 text-sm text-gray-500">Thuế vận chuyển được tính khi thanh toán.</p>
           <div class="mt-6">
             <a href="/newstb"
-              class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Checkout</a>
+              class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Thanh Toán</a>
           </div>
           <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
             <p>
-              or <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500">Continue Shopping<span
+              or <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500">Tiếp Tục Mua Sắm<span
                   aria-hidden="true"> &rarr;</span></button>
             </p>
           </div>

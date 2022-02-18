@@ -1,5 +1,4 @@
 import Navigo from "navigo"; // navigo là 1 class, đối tượng
-import { data } from "autoprefixer";
 import homePage from "./pages/client/home";
 import Introduce from "./pages/client/introduce";
 import Products from "./pages/client/AllProducts";

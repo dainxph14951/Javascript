@@ -6,6 +6,7 @@ const Header = {
                 <li><a href="/about" class="block px-4 py-3 hover:bg-blue-800 hover:text-white">About Page</a></li>
                 <li><a href="/product" class="block px-4 py-3 hover:bg-blue-800 hover:text-white">Product Page</a></li>
             </ul>
+            
         </nav>`;
     },
 };

@@ -42,7 +42,7 @@ const Cart = {
                   
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                ${cart.map((item) => `
+                ${cart.map((item) => /* html */`
                   <tr>
                   <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">${item.name}</div>
@@ -69,14 +69,16 @@ const Cart = {
                       </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <button data-id="${item.id}" class="btn btn-increase">+</button>
                     ${item.quantity}
+                    <button data-id="${item.id}" class="btn btn-decrease">-</button>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    1000đ
+                    ${item.quantity * item.price}.000 đ
                     </td>
                     <td>
-                    <button data-id="${item.id}" class="btn btn-increase">+</button>
-                    <button data-id="${item.id}" class="btn btn-decrease">-</button>
+                    
+                    
                 </td>
                 <td>
                     <button data-id="${item.id}" class="btn btn-remove">Xóa</button>
@@ -103,9 +105,10 @@ const Cart = {
                 const { id } = button.dataset;
                 if (button.classList.contains("btn-increase")) {
                     increaseQuantity(id);
+                    reRender(Cart, "#app");
                 } else if (button.classList.contains("btn-decrease")) {
                     decreaseQuantity(id, () => {
-
+                        reRender(Cart, "#app");
                     });
                 } else {
                     removeItemInCart(id, () => {

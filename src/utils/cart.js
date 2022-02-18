@@ -14,11 +14,13 @@ export const addToCart = (newProduct, next) => {
     next();
 };
 export const increaseQuantity = (id) => {
+    // eslint-disable-next-line no-plusplus
     cart.find((item) => item.id === id).quantity++;
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 export const decreaseQuantity = (id, next) => {
     const currentProduct = cart.find((item) => item.id === id);
+    // eslint-disable-next-line no-plusplus
     currentProduct.quantity--;
     if (currentProduct.quantity < 1) {
         const confirm = window.confirm("Ban co chac chan xoa khong?");
