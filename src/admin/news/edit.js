@@ -1,8 +1,8 @@
-import { add, get } from "../../api/posts";
+import { get } from "../../api/posts";
 
 const editNews = {
-    async render() {
-        const { data } = await get(1);
+    async render(id) {
+        const { data } = await get(id);
         return /* html */`<div class="max-w-5xl mx-auto">
     <form action="#" method="POST">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ const editNews = {
     </div>
 </div>
         <div class="shadow overflow-hidden sm:rounded-md">
-        <form action="" id="form-edit-products">
+        <form action="" id="form-edit-news">
             <div class="col-span-6 sm:col-span-3">
                 <span
                     class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
@@ -69,21 +69,20 @@ const editNews = {
 </div>
 `;
     },
-    afterRender() {
-        const formAdd = document.querySelector("#form-edit-products");
-        formAdd.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const postFake = {
-
-                title: document.querySelector("#tieuDe").value,
-                img: document.querySelector("#img").value,
-                detail: document.querySelector("#chiTet").value,
-            };
-            add(postFake)
-                .then((result) => console.log(result.data))
-                .catch((error) => console.log(error));
-            // axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", postFake);
-        });
-    },
+    // afterRender(id) {
+    //     const formAdd = document.querySelector("#form-edit-news");
+    //     formAdd.addEventListener("submit", (e) => {
+    //         e.preventDefault();
+    //         const postFake = {
+    //             id,
+    //             title: document.querySelector("#tieuDe").value,
+    //             img: document.querySelector("#img").value,
+    //             detail: document.querySelector("#chiTet").value,
+    //         };
+    //         update(postFake)
+    //             .then((result) => console.log(result.data))
+    //             .catch((error) => console.log(error));
+    //     });
+    // },
 };
 export default editNews;

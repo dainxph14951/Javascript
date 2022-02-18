@@ -1,5 +1,6 @@
 import axios from "axios";
 import NavAdmin from "../../components/NavAdmin";
+import { add } from "../../api/posts";
 
 const AddNewsPage = {
     render() {
@@ -39,6 +40,13 @@ const AddNewsPage = {
                             </span>
                             <input type="text" id="noiDung" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
                         </div>
+                        </div>
+                        <div class="col-span-6 sm:col-span-3">
+                        <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
+                            Ngày Viết
+                        </span>
+                        <input type="date" id="ngayDang" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
+                        </div>
                         <div class="col-span-6 sm:col-span-3">
                         <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
                             Chi Tiết Tin Tức
@@ -60,34 +68,6 @@ const AddNewsPage = {
                     `;
     },
     afterRender() {
-        // const formAdd = document.querySelector("#form-add-post");
-        // const CLOUDINARY_PRESET = "k9yoyn7r";
-        // const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dev7lem1d/image/upload";
-
-        // formAdd.addEventListener("submit", async (e) => {
-        //     e.preventDefault();
-
-        //     // Lấy giá trị của input file
-
-        //     const file = document.querySelector("#img").files[0];
-        //     // Gắn vào đối tượng formData
-        //     const formData = new FormData();
-        //     formData.append("file", file);
-        //     formData.append("upload_preset", CLOUDINARY_PRESET);
-
-        //     // call api cloudinary, để upload ảnh lên
-        //     const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-        //         headers: {
-        //             "Content-Type": "application/form-data",
-        //         },
-        //     });
-        //     // call API thêm bài viết
-        //     axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", {
-        //         title: document.querySelector("#tieuDe").value,
-        //         img: data.url,
-        //         desc: document.querySelector("#ChiTiet").value,
-        //     });
-        // });
         const formAdd = document.querySelector("#form-add-post");
         const CLOUDINARY_PRESET = "k9yoyn7r";
         const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dev7lem1d/image/upload";
@@ -107,12 +87,14 @@ const AddNewsPage = {
                 },
             });
             // call API thêm bài viết
-            axios.post("http://localhost:3001/posts", {
+            add({
                 title: document.querySelector("#tieuDe").value,
                 img: data.url,
+                content: document.querySelector("#noiDung").value,
+                date: document.querySelector("#ngayDang").value,
                 desc: document.querySelector("#chiTiet").value,
             });
-            document.location.href = "/admin/products";
+            document.location.href = "/admin/news";
         });
     },
 };

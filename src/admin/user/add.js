@@ -1,5 +1,7 @@
+import toastr from "toastr";
 import NavAdmin from "../../components/NavAdmin";
-import { add } from "../../api/users";
+import { signup } from "../../api/user";
+import "toastr/build/toastr.min.css";
 
 const AddUserPage = {
     render() {
@@ -10,7 +12,7 @@ const AddUserPage = {
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <h1 class="text-xl mx-auto font-bold text-gray-900">
-                        Thêm mới tin tức
+                        Thêm mới Tài Khoản
                     </h1>
                 </div>
             </header>
@@ -18,39 +20,54 @@ const AddUserPage = {
                 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                     <div class="px-4 py-6 sm:px-0">
                         <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-                        <form action="#" method="POST" id="form-add-post">
+                        <form action="#" method="POST" id="formSignup">
                         <div class="shadow overflow-hidden sm:rounded-md">
-                         
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-3">
-                                <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
-                                    Tiêu Đề
-                                </span>
-                                <input type="text" id="tieuDe" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
+                                <label for="first-name" class="block text-sm font-medium text-gray-700">Tên</label>
+                                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+            
+                            <div class="col-span-6 sm:col-span-3">
+                                <label for="last-name" class="block text-sm font-medium text-gray-700">Họ Tên Đệm</label>
+                                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             </div>
                             <div class="col-span-6 sm:col-span-3">
-                            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
-                               Hình Ảnh
-                            </span>
-                            <input type="file" id="img" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
-                        </div>
-                            <div class="col-span-6 sm:col-span-3">
-                            <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
-                                Nội Dung Chính
-                            </span>
-                            <input type="text" id="noiDung" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                        <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
-                            Chi Tiết Tin Tức
-                        </span>
-                        <textarea id="chiTet" id="" cols="30" rows="10" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"></textarea>
-                    </div>
-                            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                Thêm Tin Tức                        </button>
+                                <label for="gioiTinh" class="block text-sm font-medium text-gray-700">Giới Tính</label>
+                                <select id="gender" name="gioiTinh" autocomplete="gioiTinh" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Giới tính của bạn ?</option>
+                                <option>Nam</option>
+                                <option>Nữ</option>
+                                <option>Khác</option>
+                                </select>
                             </div>
-                        </div>  
-                        </form>
+            
+                            <div class="col-span-6">
+                                <label for="street-address" class="block text-sm font-medium text-gray-700">Địa Chỉ</label>
+                                <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                            </div>
+                            
+                            <div class="col-span-6 sm:col-span-4">
+                                <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
+                                <input type="email" name="email-address" id="email" autocomplete="email" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            </div>
+                            <div class="col-span-6 sm:col-span-4">
+                            <label for="email-address" class="block text-sm font-medium text-gray-700">Mật Khẩu</label>
+                            <input type="password" name="pass" id="password" autocomplete="pass" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                             </div>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                             <a href="/admin/user" class="text-white no-underline">Quay Lại</a>
+                            </button>
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Đăng Ký
+                            </button>
+                        </div>
+                        </div>
+                    </form>
                         </div>
                     </div>
                 </div>
@@ -60,20 +77,24 @@ const AddUserPage = {
                     `;
     },
     afterRender() {
-        const formAdd = document.querySelector("#form-add-post");
-        formAdd.addEventListener("submit", (e) => {
+        const formSignup = document.querySelector("#formSignup");
+        formSignup.addEventListener("submit", async (e) => {
             e.preventDefault();
-            const postFake = {
-                title: document.querySelector("#tieuDe").value,
-                img: document.querySelector("#img").value,
-                desc: document.querySelector("#noiDung").value,
-                detail: document.querySelector("#chiTet").value,
-
-            };
-            add(postFake)
-                .then((result) => console.log(result.data))
-                .catch((error) => console.log(error));
-            // axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", postFake);
+            try {
+                const { data } = await signup({
+                    firstname: document.querySelector("#first-name").value,
+                    lastname: document.querySelector("#last-name").value,
+                    gender: document.querySelector("#gender").value,
+                    streetaddress: document.querySelector("#street-address").value,
+                    email: document.querySelector("#email").value,
+                    password: document.querySelector("#password").value,
+                });
+                if (data) {
+                    document.location.href = "/admin/user";
+                }
+            } catch (error) {
+                toastr.error(error.response);
+            }
         });
     },
 };

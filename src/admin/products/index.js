@@ -1,5 +1,6 @@
-import { getAll } from "../../api/products";
+import { remove, getAll } from "../../api/products";
 import NavAdmin from "../../components/NavAdmin";
+import { reRender } from "../../utils/rerender";
 
 const ProductsPage = {
     async render() {
@@ -16,7 +17,7 @@ const ProductsPage = {
                         <a href="/admin/products/add" class="sm:ml-3">
                             <button type="button"
                             class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Thêm mới
+                            Thêm mới Sản Phẩm
                             </button>
                         </a>
                         </div>
@@ -82,13 +83,14 @@ const ProductsPage = {
                                 </span>
                               </td>
                               <td class="px-6 py-4 text-sm text-gray-400">
-                               ${products.desc}
+                               ${products.detail}
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="/admin/products/${products.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
                               </td>                              
+                       
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="${products.id}" class="bnt inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</a>
+                                <button data-id=${products.id} class="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</button>
                               </td>
                             </tr>
                             `).join("")}
@@ -108,6 +110,25 @@ const ProductsPage = {
         </div>
     
                     `;
+    },
+    afterRender() {
+        // lấy toàn bộ danh sách button có class là .btn
+        const buttons = document.querySelectorAll(".bnt");
+        // tạo vòng lặp để lấy ra từng button
+        buttons.forEach((button) => {
+            // sử dụng dataset để lấy id từ data-*
+            const { id } = button.dataset;
+            // click vào button thì xóa phần tử trong mảng
+            // dựa vào ID vừa lấy được
+            button.addEventListener("click", () => {
+                const confirm = window.confirm("Bạn chắc chắn muốn xóa không?");
+                if (confirm) {
+                    remove(id).then(() => {
+                        reRender(ProductsPage, "#app");
+                    });
+                }
+            });
+        });
     },
 };
 export default ProductsPage;
