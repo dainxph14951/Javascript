@@ -48,8 +48,7 @@ const header = {
         if (logout) {
             logout.addEventListener("click", () => {
                 localStorage.removeItem("user");
-                // reRender(header, "#header");
-                // document.location.href = "/";
+                reRender(header, "#app");
             });
         }
     },
