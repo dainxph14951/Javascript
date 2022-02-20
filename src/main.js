@@ -1,7 +1,6 @@
 import Navigo from "navigo"; // navigo là 1 class, đối tượng
 import homePage from "./pages/client/home";
 import Introduce from "./pages/client/introduce";
-import Products from "./pages/client/AllProducts";
 import Blog from "./pages/client/blog";
 import Contact from "./pages/client/contact";
 import ProductDetail from "./pages/client/productdetails";
@@ -10,7 +9,7 @@ import Signup from "./pages/client/signup";
 import Cart from "./pages/client/cart";
 import Bill from "./pages/client/bill";
 import NewsTb from "./pages/client/newstb";
-import productsPage from "./pages/client/products/index";
+import ProductsAll from "./pages/client/AllProducts";
 
 import StatisticalPage from "./admin/statistical";
 import AddNewsPage from "./admin/news/add";
@@ -31,7 +30,18 @@ const print = async (content, id) => {
     document.getElementById("app").innerHTML = await content.render(id);
     if (content.afterRender) content.afterRender(id);
 };
-
+router.on("/admin/*", () => {}, {
+    before: (done) => {
+        if (localStorage.getItem("user")) {
+            const userId = JSON.parse(localStorage.getItem("user")).id;
+            if (userId === 1) {
+                done();
+            } else {
+                document.location.href = "/";
+            }
+        }
+    },
+});
 router.on({ // phương thức on nằm trong navigo để duyệt qua tất cả các đường dẫn
     // () => : đây là arrow function rút ngắn lại của function expression
     "/": () => {
@@ -41,7 +51,7 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
         print(Introduce);
     },
     "/sanpham": () => {
-        print(Products);
+        print(ProductsAll);
     },
     "/blog": () => {
         print(Blog);
@@ -66,9 +76,6 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/allproducts": () => {
         print(Products);
-    },
-    "/products": () => {
-        print(productsPage);
     },
     "/products/:id": ({ data }) => {
         print(ProductDetail, data.id);

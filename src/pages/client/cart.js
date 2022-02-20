@@ -10,6 +10,7 @@ const Cart = {
         if (localStorage.getItem("cart")) {
             cart = JSON.parse(localStorage.getItem("cart"));
         }
+        console.log(cart);
         return /* html */`
         ${header.render()} ${Banner.render()}
         <div class="flex flex-col m-10">

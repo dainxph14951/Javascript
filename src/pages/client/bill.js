@@ -156,6 +156,7 @@ ${header.render()} ${Banner.render()}
   </div>
 
 </div>
+
 ${footer.render()}`;
     },
 };

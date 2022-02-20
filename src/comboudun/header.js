@@ -11,7 +11,7 @@ const header = {
 
                 <nav>
                     <ul class="main-menu">
-                        <li><a href="//">Trang Chủ</a></li>
+                        <li><a href="/">Trang Chủ</a></li>
                         <li><a href="/gioithieu">Giới thiệu</a></li>
                         <li><a href="/sanpham">Sản Phẩm</a></li>
                         <li><a href="/blog">Blong</a></li>
