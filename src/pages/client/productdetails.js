@@ -302,7 +302,7 @@ const ProductDetail = {
                     </div>
                    
                     <a href="/cart">
-                    <button type="submit" data-id="${product.id}" id="btnAddToCart" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+                    <button type="submit" data-id="${product.id}" id="btnAddToCart" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">Add to bag</button>
                     </a>
                   </form>
                 </div>
@@ -323,7 +323,7 @@ const ProductDetail = {
               Giảm 20% với những mẫu quần jaean nam
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">khuyến mại được áp dụng đối với những sản phẩm quần jean nam trên toàn bộ... </p>
+          <p class="text-base font-semibold text-gray-900">khuyến mại được áp dụng đối với những sản phẩm quần jean nam trên toàn bộ.</p>
         </div>
 
         <div class="group relative">
@@ -336,7 +336,7 @@ const ProductDetail = {
               Mua 5 tặng 1
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">Khi khách hàng mua hàng trục tuyến sẽ được áp dựng ưu đãi với 5 sản phẩn đổ lên...</p>
+          <p class="text-base font-semibold text-gray-900">Khi khách hàng mua hàng trục tuyến sẽ được áp dựng ưu đãi với 5 sản phẩn đổ lên.</p>
         </div>
 
         <div class="group relative">
@@ -349,7 +349,7 @@ const ProductDetail = {
               Miễn phí giao hàng
             </a>
           </h3>
-          <p class="text-base font-semibold text-gray-900">Miễn phí giao hàng với các sản phẩm từ 1.000.000, thì khách hàng sẽ được miễn...</p>
+          <p class="text-base font-semibold text-gray-900">Miễn phí giao hàng với các sản phẩm từ 1.000.000, thì khách hàng sẽ được miễn.</p>
         </div>
       </div>
     </div>

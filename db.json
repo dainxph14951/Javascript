@@ -25,6 +25,14 @@
       "id": "mn5BHh6"
     }
   ],
+  "catePosts": [
+    {"id": "1", "name:": "Đồ Nữ"},
+    {"id": "2", "name:": "Đồ Nam"},
+    {"id": "3", "name:": "Đồ Trẻ Em"}
+  ],
+  "billDetail": [
+
+  ],
   "users": [
     {
       "email": "admin@gmail.com",
@@ -51,21 +59,24 @@
       "name": "DẠ LÔNG CỪU MS 77M6818",
       "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645232549/jqbwmndrf5ri9cccieoc.jpg",
       "price": "500",
-      "detail": "Áo khoác dạ cổ 2 ve dài khoét chữ K - chần chỉ nổi viền. Tay áo dài có hàng 4 khuy trang trí. Eo có đai rời cùng màu. 2 túi chéo 2 bên. Kiểu áo này không chỉ ấm áp mà còn khiến bạn dễ phối đồ với rất nhiều kiểu đồ và phụ kiện khác nhau từ quần jean, legging tới giày cao gót hay bốt cao cổ, khăn quàng cổ,…  Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.  Màu sắc: Nude - Xanh lơ"
+      "detail": "Áo khoác dạ cổ 2 ve dài khoét chữ K - chần chỉ nổi viền. Tay áo dài có hàng 4 khuy trang trí. Eo có đai rời cùng màu. 2 túi chéo 2 bên. Kiểu áo này không chỉ ấm áp mà còn khiến bạn dễ phối đồ với rất nhiều kiểu đồ và phụ kiện khác nhau từ quần jean, legging tới giày cao gót hay bốt cao cổ, khăn quàng cổ,…  Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.  Màu sắc: Nude - Xanh lơ",
+      "catePostId": 1
     },
     {
       "id": "5FbV1Qs",
       "name": "DẠ LÔNG CỪU MS 77M6818",
       "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645232729/wdoajgstyp88ir2jmbdb.jpg",
       "price": "500",
-      "detail": "Áo khoác dạ cổ 2 ve dài khoét chữ K - chần chỉ nổi viền. Tay áo dài có hàng 4 khuy trang trí. Eo có đai rời cùng màu. 2 túi chéo 2 bên. Kiểu áo này không chỉ ấm áp mà còn khiến bạn dễ phối đồ với rất nhiều kiểu đồ và phụ kiện khác nhau từ quần jean, legging tới giày cao gót hay bốt cao cổ, khăn quàng cổ,…  Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.  Màu sắc: Nude - Xanh lơ"
+      "detail": "Áo khoác dạ cổ 2 ve dài khoét chữ K - chần chỉ nổi viền. Tay áo dài có hàng 4 khuy trang trí. Eo có đai rời cùng màu. 2 túi chéo 2 bên. Kiểu áo này không chỉ ấm áp mà còn khiến bạn dễ phối đồ với rất nhiều kiểu đồ và phụ kiện khác nhau từ quần jean, legging tới giày cao gót hay bốt cao cổ, khăn quàng cổ,…  Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.  Màu sắc: Nude - Xanh lơ",
+      "catePostId": 1
     },
     {
       "name": "DẠ LÔNG CỪU  MS 77M6817",
       "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645233359/wsp4dvqqf8s2xz9exd7w.jpg",
       "price": "500",
       "detail": "\nChi tiết\nBảo quản\nTham khảo size\nÁo khoác dạ cổ 2 ve khoét chữ K. Tay dài. Túi trước có nắp. Có vạt đắp chéo, có 6 khuy phía trước. Dáng áo dài ngang bắp chân. KHÔNG KÈM ĐAI\n\nKiểu dáng sang trọng, màu tinh tế. Dễ phối giày và phụ kiện cùng thời trang mặc phía trong. Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.\n\nMàu sắc: Xanh Tím Than - Tím Lavender - Đỏ",
-      "id": "MfI2xcD"
+      "id": "MfI2xcD",
+      "catePostId": 1
     }
   ]
 }

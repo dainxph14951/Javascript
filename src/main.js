@@ -24,6 +24,10 @@ import ProductsAddPage from "./admin/products/add";
 import ProductsPage from "./admin/products";
 import ProductsEdit from "./admin/products/edit";
 
+import CategoryPage from "./admin/Category";
+import CategoryAdd from "./admin/Category/add";
+import CategoryEdit from "./admin/Category/edit";
+
 const router = new Navigo("/", { linksSelector: "a", hash: true }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
 const print = async (content, id) => {
@@ -75,7 +79,7 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
         print(NewsTb);
     },
     "/allproducts": () => {
-        print(Products);
+        // print(Products);
     },
     "/products/:id": ({ data }) => {
         print(ProductDetail, data.id);
@@ -109,6 +113,15 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/admin/products/:id/edit": ({ data }) => {
         print(ProductsEdit, data.id);
+    },
+    "/admin/danhmuc": () => {
+        print(CategoryPage);
+    },
+    "/admin/danhmuc/add": () => {
+        print(CategoryAdd);
+    },
+    "/admin/danhmuc/:id/edit": ({ data }) => {
+        print(CategoryEdit, data.id);
     },
 
 });

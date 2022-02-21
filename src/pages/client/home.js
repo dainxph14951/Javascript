@@ -141,8 +141,9 @@ const homePage = {
         </div>
       </div>
                                                 <!-- TIN TỨC... -->
-      ${newsHome.render()}
+  
       <div class="bg-gray-100">
+      ${newsHome.render()}
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
           <h2 class="text-2xl font-extrabold text-gray-900">Chương Trình Khuyến Mại</h2>
@@ -198,16 +199,6 @@ const homePage = {
     },
     afterRender() {
         header.afterRender();
-    },
-    serach() {
-        const search = document.getElementById("searchItem").value;
-        const list = this.response;
-        console.log(list);
-        // if (search) {
-        //     for (let i = 0; i < list.length; i++) {
-        //         const str = list[i].name;
-        //     }
-        // }
     },
 };
 export default homePage;

@@ -1,8 +1,9 @@
-import { remove, getAll } from "../../api/products";
+import { getAll, remove } from "../../api/posts";
 import NavAdmin from "../../components/NavAdmin";
 import { reRender } from "../../utils/rerender";
 
-const ProductsPage = {
+const CategoryPage = {
+
     async render() {
         const response = await getAll();
         return /* html */`
@@ -13,11 +14,12 @@ const ProductsPage = {
                     <div class="lg:flex lg:items-center lg:justify-between">
                         <div class="flex-1 min-w-0">
                         </div>
+                       
                         <div class="mt-9 mx-auto flex lg:mt-0 lg:ml-4">
-                        <a href="/admin/products/add" class="sm:ml-3">
+                        <a href="/admin/news/add" class="sm:ml-3">
                             <button type="button"
                             class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Thêm mới Sản Phẩm
+                            Thêm mới Tin Tức
                             </button>
                         </a>
                         </div>
@@ -40,16 +42,16 @@ const ProductsPage = {
                           <thead class="bg-gray-50">
                             <tr>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Ảnh Sản Phẩm
+                                Ảnh Tin Tức
                               </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                              Tên Sản Phẩm
+                              Tên tin Tức
                             </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Giá
+                                Ngày Tạo
                               </th>
                               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Chi Tiết Sản Phẩm
+                                Chi Tiết 
                               </th>
                               <th scope="col" class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                
@@ -60,13 +62,13 @@ const ProductsPage = {
                             </tr>
                           </thead>
                           <tbody class="bg-white divide-y divide-gray-200">
-                          ${response.data.map((products) => `
+                          ${response.data.map((post) => `
                             <tr>
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                   <div class="flex-shrink-0 h-10 w-10">
                   
-                                    <img class="h-10 w-10 rounded-full" src="${products.img}" alt="">
+                                    <img class="h-10 w-10 rounded-full" src="${post.img}" alt="">
                   
                                   </div>
                                   </div>
@@ -74,23 +76,23 @@ const ProductsPage = {
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
                   
-                              <div class="text-sm text-gray-900">${products.name}</div>
+                              <div class="text-sm text-gray-900">${post.title}</div>
                   
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap">
                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                ${products.price}
+                                ${post.date}
                                 </span>
                               </td>
                               <td class="px-6 py-4 text-sm text-gray-400">
-                               ${products.detail}
+                               ${post.desc}
                               </td>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/admin/products/${products.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">sửa</a>
-                              </td>                              
+                              <a href="/admin/news/${post.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">sửa</a>
+                              </td>    
                        
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <button data-id=${products.id} class="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</button>
+                                <button data-id=${post.id} class="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</button>
                               </td>
                             </tr>
                             `).join("")}
@@ -124,11 +126,11 @@ const ProductsPage = {
                 const confirm = window.confirm("Bạn chắc chắn muốn xóa không?");
                 if (confirm) {
                     remove(id).then(() => {
-                        reRender(ProductsPage, "#app");
+                        reRender(CategoryPage, "#app");
                     });
                 }
             });
         });
     },
 };
-export default ProductsPage;
+export default CategoryPage;
