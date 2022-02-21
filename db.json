@@ -4,7 +4,7 @@
       "id": "Z12X3d_",
       "title": "Tổng hợp những mẫu áo khoác voan nhẹ nhàng cho mùa Hè",
       "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645233069/ilasdcdhiv6xx3njwjhz.jpg",
-      "content": "Phong cách thời trang mùa Hè dành cho các cô nàng duyên dáng với thiết kế họa tiết hoa văn nhiệt đới luôn giúp nàng tràn đầy năng lượng và sức sống. Nằm trong danh sách những mẫu áo khoác nữ mùa Hè nổi bật và ấn tượng nhất không thể không kể đến áo khoác voan. Cùng IVY moda tìm hiểu về mẫu áo khoác voan dành cho các nàng theo đuổi phong cách duyên dáng và nữ tính qua bài viết này nhé!",
+      "content": "Tổng hợp những mẫu áo khoác voan nhẹ nhàng cho mùa Hè",
       "date": "2022-02-19",
       "desc": "Phong cách thời trang mùa Hè dành cho các cô nàng duyên dáng với thiết kế họa tiết hoa văn nhiệt đới luôn giúp nàng tràn đầy năng lượng và sức sống. Nằm trong danh sách những mẫu áo khoác nữ mùa Hè nổi bật và ấn tượng nhất không thể không kể đến áo khoác voan. Cùng IVY moda tìm hiểu về mẫu áo khoác voan dành cho các nàng theo đuổi phong cách duyên dáng và nữ tính qua bài viết này nhé!"
     },
@@ -26,13 +26,20 @@
     }
   ],
   "catePosts": [
-    {"id": "1", "name:": "Đồ Nữ"},
-    {"id": "2", "name:": "Đồ Nam"},
-    {"id": "3", "name:": "Đồ Trẻ Em"}
+    {
+      "name": " Đồ Nữ",
+      "id": 1
+    },
+    {
+      "name": " Đồ Nam",
+      "id": 2
+    },
+    {
+      "name": " Đồ Trẻ Em",
+      "id": 3
+    }
   ],
-  "billDetail": [
-
-  ],
+  "billDetail": [],
   "users": [
     {
       "email": "admin@gmail.com",
@@ -77,6 +84,22 @@
       "detail": "\nChi tiết\nBảo quản\nTham khảo size\nÁo khoác dạ cổ 2 ve khoét chữ K. Tay dài. Túi trước có nắp. Có vạt đắp chéo, có 6 khuy phía trước. Dáng áo dài ngang bắp chân. KHÔNG KÈM ĐAI\n\nKiểu dáng sang trọng, màu tinh tế. Dễ phối giày và phụ kiện cùng thời trang mặc phía trong. Với chất liệu áo làm bằng Lông cừu cao cấp, khâu tay 100% với các mũi khâu được khâu tỉ mỉ khéo léo không làm lộ chỉ. Với đặc điểm mềm, mỏng, nhẹ và giữ ấm tuyệt đối. Áo khoác dạ ép lông cừu đã trở thành item không thể thiểu của phái đẹp mỗi khi đông về. Nắm bắt kịp xu hướng cũng như nhu cầu này, IVY moda đã cho ra đời BST áo khoác dạ ép lông cừu khâu tay cao cấp đạt chuẩn với nhiều kiểu dáng, màu sắc cho phái đẹp lựa chọn.\n\nMàu sắc: Xanh Tím Than - Tím Lavender - Đỏ",
       "id": "MfI2xcD",
       "catePostId": 1
+    },
+    {
+      "name": "QUẦN TÂY NAM KHAKI  MS 22E2895",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645449535/ylhpnzra3woyajz0r8og.jpg",
+      "price": "500",
+      "detail": "Quần dài khaki kiểu dáng Slim, đai quần có đỉa. 2 túi chéo trước, 2 túi sau có khuy cài. Thiết kế tối giản, các chi tiết may tỉ mỉ, tinh tế, mang đến diện mạo chỉn chu, lịch lãm cho người mặc. Cài bằng khóa kéo và khuy cài.\n\nChất liệu Khaki thoáng mát, thấm hút mồ hôi tốt và khả năng giữ bền form dáng sau nhiều lần giặt.\n\nMàu sắc: Đen - Be",
+      "id": "N2lM2ph",
+      "catePostId": 2
+    },
+    {
+      "name": "ÁO KHOÁC PHAO CỔ MŨ VIỀN LÔNG MS 70K1450",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645449643/ph1xefn74swnpx2znztr.jpg",
+      "price": "500",
+      "detail": "Áo khoác may kiểu chần bông có mũ trùm đầu viền lông, dài tay, bo thun gân co giãn cổ tay. Cài khóa kéo phía trước (bấm khuy bên ngoài), cổ thấp, có mũ trùm đầu. Có 2 túi vuông khuy bấm phía trước.\n\nBên trong nhồi bông dày dặn với phom dáng chuẩn cùng đường may tỉ mỉ. Tính năng giữ nhiệt, chống nước, độ bền cao.\n\nMàu sắc: Nhiều màu",
+      "id": "gCv65K5",
+      "catePostId": 3
     }
   ]
 }

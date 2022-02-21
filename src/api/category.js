@@ -1,6 +1,6 @@
 import instance from "./instance";
 
-export const getAll = () => {
+export const getAllCate = () => {
     const url = "/catePosts";
     return instance.get(url);
 };
@@ -14,11 +14,11 @@ export const remove = (id) => {
     return instance.delete(url);
 };
 
-export const add = (category) => {
+export const add = (cate) => {
     const url = `/catePosts`;
-    return instance.post(url, category);
+    return instance.post(url, cate);
 };
-export const update = (category) => {
-    const url = `/posts/${category.id}`;
-    return instance.put(url, category);
+export const update = (cate) => {
+    const url = `/posts/${cate.id}`;
+    return instance.put(url, cate);
 };

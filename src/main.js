@@ -3,13 +3,14 @@ import homePage from "./pages/client/home";
 import Introduce from "./pages/client/introduce";
 import Blog from "./pages/client/blog";
 import Contact from "./pages/client/contact";
-import ProductDetail from "./pages/client/productdetails";
 import Signin from "./pages/client/signin";
 import Signup from "./pages/client/signup";
 import Cart from "./pages/client/cart";
 import Bill from "./pages/client/bill";
 import NewsTb from "./pages/client/newstb";
-import ProductsAll from "./pages/client/AllProducts";
+import ProductsAll from "./pages/client/products/AllProducts";
+import ProductsAllDetail from "./pages/client/products/AllProductsDetail";
+import ProductDetail from "./pages/client/productdetails";
 
 import StatisticalPage from "./admin/statistical";
 import AddNewsPage from "./admin/news/add";
@@ -83,6 +84,9 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/products/:id": ({ data }) => {
         print(ProductDetail, data.id);
+    },
+    "/products/:id/cate": ({ data }) => {
+        print(ProductsAllDetail, data.id);
     },
     "/admin/statistical": () => {
         print(StatisticalPage);
