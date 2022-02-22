@@ -1,3 +1,5 @@
+import $ from "jquery";
+import validate from "jquery-validation";
 import toastr from "toastr";
 import { signin } from "../../api/user";
 import "toastr/build/toastr.min.css";
@@ -19,7 +21,7 @@ const Signin = {
             <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                <input type="email" name="email-address" id="email" autocomplete="email" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <input type="email" name="emailaddress" id="email" autocomplete="email" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
             </div>
             <div class="col-span-6 sm:col-span-4">
             <label for="email-address" class="block text-sm font-medium text-gray-700">Mật Khẩu</label>
@@ -43,29 +45,53 @@ const Signin = {
     `;
     },
     afterRender() {
-        const formSignin = document.querySelector("#formSignin");
-        formSignin.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            try {
-                const { data } = await signin({
-                    email: document.querySelector("#email").value,
-                    password: document.querySelector("#password").value,
-                });
-                if (data) {
-                    console.log(data.user);
-                    localStorage.setItem("user", JSON.stringify(data.user)); // lưu dữ liệu vào local storage
-                    toastr.success("Đăng Nhập thành công, chờ chuyển trang");
-                    if (data.user.id === 1) {
-                        setTimeout(() => {
-                            document.location.href = "/admin/statistical";
-                        }, 2000);
-                    } else {
-                        document.location.href = "/";
+        const formSignin = $("#formSignin");
+        formSignin.validate({
+            rules: {
+                emailaddress: {
+                    required: true,
+                    minlength: 5,
+                },
+                pass: {
+                    required: true,
+                    minlength: 5,
+                },
+            },
+            messages: {
+                emailaddress: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                pass: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+            },
+            submitHandler: () => {
+                async function handleAddPost() {
+                    try {
+                        const { data } = await signin({
+                            email: document.querySelector("#email").value,
+                            password: document.querySelector("#password").value,
+                        });
+                        if (data) {
+                            console.log(data.user);
+                            localStorage.setItem("user", JSON.stringify(data.user)); // lưu dữ liệu vào local storage
+                            toastr.success("Đăng Nhập thành công, chờ chuyển trang");
+                            if (data.user.id === 1) {
+                                setTimeout(() => {
+                                    document.location.href = "/admin/statistical";
+                                }, 2000);
+                            } else {
+                                document.location.href = "/";
+                            }
+                        }
+                    } catch (error) {
+                        toastr.error(error.response);
                     }
                 }
-            } catch (error) {
-                toastr.error(error.response);
-            }
+                handleAddPost();
+            },
         });
     },
 };

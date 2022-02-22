@@ -209,7 +209,7 @@ const ProductsAll = {
                   
                     <div>
                       <h3 class="text-sm text-gray-700">
-                        <a href="#">
+                        <a href="/products/${items.id}">
                           <span aria-hidden="true" class="absolute inset-0"></span>
                           ${items.name}
                         </a>

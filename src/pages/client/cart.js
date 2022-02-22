@@ -75,7 +75,7 @@ const Cart = {
                     <button data-id="${item.id}" class="btn btn-decrease">-</button>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    ${item.quantity * item.price}.000 đ
+                    ${item.quantity * item.price}đ
                     </td>
                     <td>
                     
@@ -97,6 +97,13 @@ const Cart = {
       <button type="submit" class="mt-10  bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 no-underline">Thanh Toán</button>
       </a>
       ${footer.render()}
+
+
+
+      
+      </div>
+    </div>
+      </div>
  `;
     },
     afterRender() {

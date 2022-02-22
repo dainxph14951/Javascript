@@ -1,3 +1,5 @@
+import $ from "jquery";
+import validate from "jquery-validation";
 import toastr from "toastr";
 import { signup } from "../../api/user";
 import "toastr/build/toastr.min.css";
@@ -19,12 +21,12 @@ const Signup = {
                 <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                     <label for="first-name" class="block text-sm font-medium text-gray-700">Tên</label>
-                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <input type="text" name="firstname" id="first-name" autocomplete="given-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
                     <label for="last-name" class="block text-sm font-medium text-gray-700">Họ Tên Đệm</label>
-                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <input type="text" name="lastname" id="last-name" autocomplete="family-name" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
                 <div class="col-span-6 sm:col-span-3">
                     <label for="gioiTinh" class="block text-sm font-medium text-gray-700">Giới Tính</label>
@@ -38,13 +40,13 @@ const Signup = {
 
                 <div class="col-span-6">
                     <label for="street-address" class="block text-sm font-medium text-gray-700">Địa Chỉ</label>
-                    <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <input type="text" name="streetaddress" id="street-address" autocomplete="street-address" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
                 </div>
                 
                 <div class="col-span-6 sm:col-span-4">
                     <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                    <input type="email" name="email-address" id="email" autocomplete="email" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <input type="email" name="emailaddress" id="email" autocomplete="email" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                 </div>
                 <div class="col-span-6 sm:col-span-4">
                 <label for="email-address" class="block text-sm font-medium text-gray-700">Mật Khẩu</label>
@@ -68,27 +70,75 @@ const Signup = {
         `;
     },
     afterRender() {
-        const formSignup = document.querySelector("#formSignup");
-        formSignup.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            try {
-                const { data } = await signup({
-                    firstname: document.querySelector("#first-name").value,
-                    lastname: document.querySelector("#last-name").value,
-                    gender: document.querySelector("#gender").value,
-                    streetaddress: document.querySelector("#street-address").value,
-                    email: document.querySelector("#email").value,
-                    password: document.querySelector("#password").value,
-                });
-                if (data) {
-                    toastr.success("Đăng Ký thành công, chờ chuyển trang");
-                    setTimeout(() => {
-                        document.location.href = "/signin";
-                    }, 2000);
+        const formSignup = $("#formSignup");
+        formSignup.validate({
+            rules: {
+                firstname: {
+                    required: true,
+                    minlength: 2,
+                },
+                lastname: {
+                    required: true,
+                    minlength: 2,
+                },
+                streetaddress: {
+                    required: true,
+                    minlength: 2,
+                },
+                emailaddress: {
+                    required: true,
+                    minlength: 2,
+                },
+                pass: {
+                    required: true,
+                    minlength: 2,
+                },
+            },
+            messages: {
+                firstname: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                lastname: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                streetaddress: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                emailaddress: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+                pass: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+            },
+            submitHandler: () => {
+                async function handleAddPost() {
+                    try {
+                        const { data } = await signup({
+                            firstname: document.querySelector("#first-name").value,
+                            lastname: document.querySelector("#last-name").value,
+                            gender: document.querySelector("#gender").value,
+                            streetaddress: document.querySelector("#street-address").value,
+                            email: document.querySelector("#email").value,
+                            password: document.querySelector("#password").value,
+                        });
+                        if (data) {
+                            toastr.success("Đăng Ký thành công, chờ chuyển trang");
+                            setTimeout(() => {
+                                document.location.href = "/signin";
+                            }, 2000);
+                        }
+                    } catch (error) {
+                        toastr.error(error.response);
+                    }
                 }
-            } catch (error) {
-                toastr.error(error.response);
-            }
+                handleAddPost();
+            },
         });
     },
 

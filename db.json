@@ -58,6 +58,15 @@
       "gender": "Nữ",
       "streetaddress": "Hoài Đức, Hà Nội.",
       "id": 2
+    },
+    {
+      "email": "dainxph14951@gmail.com",
+      "password": "$2a$10$.kfXsVMbgB6mA3ROC2Ex1esCLHo9zNo.MjkfC0Mw7h1gkLZ7hzd/q",
+      "firstname": "Đạixxx",
+      "lastname": "Nguyễn",
+      "gender": "Nam",
+      "streetaddress": "Trịnh Văn Bô",
+      "id": 3
     }
   ],
   "products": [

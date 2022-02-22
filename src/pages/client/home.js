@@ -2,7 +2,6 @@ import { getAll } from "../../api/products";
 import footer from "../../comboudun/footer";
 import header from "../../comboudun/header";
 import Banner from "../../comboudun/banner";
-import newsHome from "./news";
 
 const homePage = {
     async render() {
@@ -143,7 +142,6 @@ const homePage = {
                                                 <!-- TIN TỨC... -->
   
       <div class="bg-gray-100">
-      ${newsHome.render()}
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
           <h2 class="text-2xl font-extrabold text-gray-900">Chương Trình Khuyến Mại</h2>

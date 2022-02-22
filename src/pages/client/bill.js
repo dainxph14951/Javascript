@@ -43,10 +43,7 @@ ${header.render()} ${Banner.render()}
               <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Số Điện Thoại</label>
               <input type="number" name="phoneNumber" id="phoneNumber" autocomplete="phoneNumber"
                 class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-            </div>
-            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                gửi
-                </button>
+            </div>  
           </div>
           </form>
         </div>
@@ -71,8 +68,9 @@ ${header.render()} ${Banner.render()}
             </div>
           </div>
           <div class="mt-8">
-          ${cart.map((item) => /* html */`
+
           <div class="flow-root">
+          ${cart.map((item) => /* html */`
             <div role="list" class="-my-6 divide-y divide-gray-200">
               <div class="py-6 flex">
                 <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
@@ -111,24 +109,25 @@ ${header.render()} ${Banner.render()}
                     <p>Tổng Tiền</p>
                     <p>${item.quantity * item.price}</p>
                   </div>
-
-                  <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
-                    <p class="mt-0.5 text-sm text-gray-500">Thuế vận chuyển được tính khi thanh toán.</p>
-                    <div class="mt-6">
-                      <a href=""
-                        class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Thanh
-                        Toán</a>
-                    </div>
-                    <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
-                      <p>
-                        or <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500">Tiếp Tục
-                          Mua Sắm<span aria-hidden="true"> &rarr;</span></button>
-                      </p>
-                    </div>
-                  </div>
                 </div>
+                
               </div>
+              `).join("")}
             </div>
+            <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+            <p class="mt-0.5 text-sm text-gray-500">Thuế vận chuyển được tính khi thanh toán.</p>
+            <div class="mt-6">
+              <a href=""
+                class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Thanh
+                Toán</a>
+            </div>
+            <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
+              <p>
+                or <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500">Tiếp Tục
+                  Mua Sắm<span aria-hidden="true"> &rarr;</span></button>
+              </p>
+            </div>
+          </div>
           </div>
          
         </div>
@@ -139,7 +138,7 @@ ${header.render()} ${Banner.render()}
 
 
 </div>
-`).join("")}
+
 
 ${footer.render()}`;
     },
