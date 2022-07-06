@@ -71,34 +71,6 @@ const CategoryAdd = {
                     `;
     },
     afterRender() {
-        // const formAdd = document.querySelector("#form-add-post");
-        // const CLOUDINARY_PRESET = "k9yoyn7r";
-        // const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dev7lem1d/image/upload";
-        // formAdd.addEventListener("submit", async (e) => {
-        //     e.preventDefault();
-        //     // Lấy giá trị của input file
-        //     const file = document.querySelector("#img").files[0];
-        //     // Gắn vào đối tượng formData
-        //     const formData = new FormData();
-        //     formData.append("file", file);
-        //     formData.append("upload_preset", CLOUDINARY_PRESET);
-
-        //     // call api cloudinary, để upload ảnh lên
-        //     const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-        //         headers: {
-        //             "Content-Type": "application/form-data",
-        //         },
-        //     });
-        //     // call API thêm bài viết
-        //     add({
-        //         title: document.querySelector("#tieuDe").value,
-        //         img: data.url,
-        //         content: document.querySelector("#noiDung").value,
-        //         date: document.querySelector("#ngayDang").value,
-        //         desc: document.querySelector("#chiTiet").value,
-        //     });
-        //     document.location.href = "/admin/news";
-        // });
         const formAddPost = $("#form-add-post");
         const imgPreview = document.querySelector("#img-preview");
         const imgPost = document.querySelector("#img");

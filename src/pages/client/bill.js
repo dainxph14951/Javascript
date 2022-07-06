@@ -6,12 +6,12 @@ import { add } from "../../api/billdetail";
 import "toastr/build/toastr.min.css";
 
 const Bill = {
-    render() {
-        let cart = [];
-        if (localStorage.getItem("cart")) {
-            cart = JSON.parse(localStorage.getItem("cart"));
-        }
-        return /* html */`
+  render() {
+    let cart = [];
+    if (localStorage.getItem("cart")) {
+      cart = JSON.parse(localStorage.getItem("cart"));
+    }
+    return /* html */`
 ${header.render()} ${Banner.render()}
 <h1>Thanh Toán</h1>
 <div class="m-20 ">
@@ -141,29 +141,29 @@ ${header.render()} ${Banner.render()}
 
 
 ${footer.render()}`;
-    },
-    afterRender() {
-        const categoryAdd = document.querySelector("#form-add-category");
-        categoryAdd.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            console.log(1111111111);
-            // try {
-            //     const { data } = await add({
-            //         name: document.querySelector("#name").value,
-            //         email: document.querySelector("#email").value,
-            //         address: document.querySelector("#address").value,
-            //         phone: document.querySelector("#phoneNumber").value,
-            //     });
-            //     if (data) {
-            //         toastr.success("Đăng Ký thành công, chờ chuyển trang");
-            //         // setTimeout(() => {
-            //         // document.location.href = "/newstb";
-            //         // }, 2000);
-            //     }
-            // } catch (error) {
-            //     toastr.error(error.response);
-            // }
-        });
-    },
+  },
+  afterRender() {
+    const categoryAdd = document.querySelector("#form-add-category");
+    categoryAdd.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      console.log(1111111111);
+      // try {
+      //     const { data } = await add({
+      //         name: document.querySelector("#name").value,
+      //         email: document.querySelector("#email").value,
+      //         address: document.querySelector("#address").value,
+      //         phone: document.querySelector("#phoneNumber").value,
+      //     });
+      //     if (data) {
+      //         toastr.success("Đăng Ký thành công, chờ chuyển trang");
+      //         // setTimeout(() => {
+      //         // document.location.href = "/newstb";
+      //         // }, 2000);
+      //     }
+      // } catch (error) {
+      //     toastr.error(error.response);
+      // }
+    });
+  },
 };
 export default Bill;

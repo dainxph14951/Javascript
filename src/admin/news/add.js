@@ -117,25 +117,9 @@ const AddNewsPage = {
                     required: true,
                     minlength: 5,
                 },
-                noiDung: {
-                    required: true,
-                    minlength: 5,
-                },
-                chiTiet: {
-                    required: true,
-                    minlength: 5,
-                },
             },
             messages: {
                 tieuDe: {
-                    required: "Không để trống trường này!",
-                    minlength: "Ít nhất phải trên 5 ký tự",
-                },
-                noiDung: {
-                    required: "Không để trống trường này!",
-                    minlength: "Ít nhất phải trên 5 ký tự",
-                },
-                chiTiet: {
                     required: "Không để trống trường này!",
                     minlength: "Ít nhất phải trên 5 ký tự",
                 },

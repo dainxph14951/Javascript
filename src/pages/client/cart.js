@@ -47,7 +47,7 @@ const Cart = {
                   <tr>
                   <td class="px-6 py-4 whitespace-nowrap">
                   <div class="text-sm text-gray-900">${item.name}</div>
-                </td>
+                 </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">

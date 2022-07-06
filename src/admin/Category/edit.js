@@ -123,7 +123,6 @@ const CategoryEdit = {
         imgProduct.addEventListener("change", (e) => {
             productImg.src = URL.createObjectURL(e.target.files[0]);
         });
-
         formEdit.addEventListener("submit", async (e) => {
             e.preventDefault();
             const file = imgProduct.files[0];
@@ -139,7 +138,6 @@ const CategoryEdit = {
                 });
                 productImageLink = data.url;
             }
-
             update({
                 id,
                 title: document.querySelector("#tieuDe").value,
